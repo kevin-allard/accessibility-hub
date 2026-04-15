@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility Resources Hub</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --surface-2: #f0f4f8;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dbe3ec;
+      --primary: #0f4c81;
+      --primary-soft: #e8f1f8;
+      --success: #1f7a4d;
+      --success-soft: #eaf7f0;
+      --warning: #9a6700;
+      --warning-soft: #fff4d6;
+      --danger: #b42318;
+      --danger-soft: #fdecea;
+      --purple: #6941c6;
+      --purple-soft: #f4f0ff;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f4c81, #16609f);
+      color: white;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2.1rem;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 850px;
+      color: rgba(255,255,255,0.92);
+      font-size: 1.03rem;
+    }
+
+    .hero .callout {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 22px 0 28px;
+    }
+
+    .step-card {
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      min-height: 220px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+    }
+
+    .step-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .step-card li + li { margin-top: 6px; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      margin: 0 0 12px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li + li { margin-top: 8px; }
+
+    .sidebar a {
+      display: block;
+      padding: 9px 10px;
+      border-radius: 10px;
+      color: var(--text);
+    }
+
+    .sidebar a:hover {
+      background: var(--surface-2);
+      text-decoration: none;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+    }
+
+    .section > p.lead {
+      margin-top: 0;
+      color: var(--muted);
+    }
+
+    .rule-grid,
+    .faq-grid,
+    .product-grid,
+    .print-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .card li + li { margin-top: 6px; }
+
+    .do { background: var(--success-soft); border-color: #ccebd9; }
+    .dont { background: var(--danger-soft); border-color: #f2c3be; }
+    .info { background: var(--primary-soft); border-color: #c9deef; }
+    .warn { background: var(--warning-soft); border-color: #f0d593; }
+    .purple { background: var(--purple-soft); border-color: #d8cfff; }
+
+    .template {
+      background: #0f172a;
+      color: #e5eef9;
+      border-radius: 16px;
+      padding: 18px;
+      overflow-x: auto;
+      font-size: 0.96rem;
+      border: 1px solid #1e293b;
+      white-space: pre-wrap;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+      background: var(--surface);
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface-2);
+      font-size: 0.95rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      background: var(--surface);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 12px;
+      font-size: 1.03rem;
+    }
+
+    .say, .not-say {
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+
+    .say {
+      background: var(--success-soft);
+      border: 1px solid #ccebd9;
+    }
+
+    .not-say {
+      background: var(--danger-soft);
+      border: 1px solid #f2c3be;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .view { display: none; }
+    .view.active { display: block; }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+
+    .button.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      filter: brightness(0.98);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .field select,
+    .field input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .result-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 28px 18px;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      background: var(--surface-2);
+      color: var(--muted);
+    }
+
+    .program-tool-promo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin: 0 0 28px;
+    }
+
+    .program-tool-promo h3 {
+      font-size: 1.08rem;
+    }
+
+    .footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .layout,
+      .process-steps,
+      .rule-grid,
+      .faq-grid,
+      .product-grid,
+      .print-grid,
+      .two-col,
+      .three-col,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .program-tool-promo {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div id="hub-view" class="view active">
+    <header class="hero">
+      <h1>Accessibility Resources Hub</h1>
+      <p>Supporting customer-facing teams with accurate, consistent, and low-risk responses to accessibility inquiries from districts, schools, and partners.</p>
+      <div class="callout">Important: Always use approved language and documentation. Do not interpret or summarize accessibility compliance.</div>
+    </header>
+
+    <section class="section" id="guardrails">
+      <h2>Start Here</h2>
+      <p class="lead">Use these guardrails whenever responding to accessibility-related customer inquiries.</p>
+      <div class="rule-grid">
+        <div class="card do">
+          <h3>✅ Always Do</h3>
+          <ul>
+            <li>Share the latest ACR for the relevant product.</li>
+            <li>Use approved response language.</li>
+            <li>Refer customers to documentation rather than summarizing it.</li>
+            <li>Offer follow-up on specific questions.</li>
+          </ul>
+        </div>
+        <div class="card dont">
+          <h3>❌ Do NOT</h3>
+          <ul>
+            <li>State that a product is “fully compliant” unless explicitly documented.</li>
+            <li>Interpret ACR findings as “mostly compliant” or similar shorthand.</li>
+            <li>Commit to timelines such as April 2026.</li>
+            <li>Make guarantees or compare products casually.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note"><strong>Rule of thumb:</strong> If it is not written in the ACR or approved guidance, do not say it.</div>
+    </section>
+
+    <section class="process-steps" aria-label="How to respond to an accessibility inquiry">
+      <div class="step-card info">
+        <div class="step-number">1</div>
+        <h3>Step 1: Identify the scope</h3>
+        <ul>
+          <li>Confirm the exact product, program, edition, and format involved.</li>
+          <li>Determine whether the request is about a platform, digital books, print materials, or all three.</li>
+          <li>Use the Accessibility by Program tool when a district is asking about a named program.</li>
+        </ul>
+      </div>
+      <div class="step-card purple">
+        <div class="step-number">2</div>
+        <h3>Step 2: Gather the documentation</h3>
+        <ul>
+          <li>Locate the latest ACRs for the relevant platforms.</li>
+          <li>Check whether digital books / PDFs are available through the Clear Learning Center.</li>
+          <li>Check whether NIMAS is available for the related print titles.</li>
+        </ul>
+      </div>
+      <div class="step-card warn">
+        <div class="step-number">3</div>
+        <h3>Step 3: Respond using approved language</h3>
+        <ul>
+          <li>Use the approved response template as your default starting point.</li>
+          <li>Attach or link the relevant documentation.</li>
+          <li>Let the documents speak for themselves.</li>
+        </ul>
+      </div>
+      <div class="step-card do">
+        <div class="step-number">4</div>
+        <h3>Step 4: Escalate if needed</h3>
+        <ul>
+          <li>Escalate questions involving commitments, guarantees, legal language, or interpretation of results.</li>
+          <li>Escalate if multiple products or delivery paths create uncertainty.</li>
+          <li>When in doubt, ask before responding externally.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="program-tool-promo card info" id="program-tool">
+      <div>
+        <h3 style="margin:0 0 6px;">Accessibility by Program</h3>
+        <p style="margin:0; color:var(--muted);">Use the program lookup tool to identify which ACRs, digital book resources, and print/NIMAS pathways apply to a specific Carnegie Learning program. The tool also generates a ready-to-send response you can copy and paste into an email, along with links to the appropriate documents.</p>
+      </div>
+      <a class="button primary" href="#program-tool-view">Open Program Tool</a>
+    </div>
+
+    <div class="layout">
+      <nav class="sidebar" aria-label="Page sections">
+        <h2>On this page</h2>
+        <ul>
+          <li><a href="#guardrails">Start Here</a></li>
+          <li><a href="#template">Approved Response Template</a></li>
+          <li><a href="#digital">Digital Products Overview</a></li>
+          <li><a href="#documentation">ACR Library</a></li>
+          <li><a href="#learn">Learn More about Accessibility</a></li>
+          <li><a href="#program-tool-view">Accessibility by Program</a></li>
+          <li><a href="#print">Print and Digital Books & Alternative Formats</a></li>
+          <li><a href="#approach">Accessibility Philosophy & Policy</a></li>
+          <li><a href="#faq">What to Say / What Not to Say</a></li>
+          <li><a href="#escalate">When to Escalate</a></li>
+          <li><a href="#contact">Contact & Support</a></li>
+        </ul>
+      </nav>
+
+      <main class="content">
+
+        <section class="section" id="template">
+          <h2>Approved Response Template</h2>
+          <p class="lead">Use this as your default starting point. Customize product names only.</p>
+          <div class="toolbar" style="margin-bottom:10px;">
+            <button class="button primary" id="copy-template-btn">Copy Template</button>
+            <span class="muted">Copies the template to your clipboard</span>
+          </div>
+          <div class="template" id="template-content">[Replace bracketed placeholders before sending]
+Thank you for reaching out regarding accessibility and WCAG 2.1 AA for <strong>[program-name]</strong>.
+
+Below are the relevant accessibility resources based on the components used in this program.
+
+<strong>Platforms</strong>
+- Clear Learning Center (if applicable): [attach/link Clear Learning Center ACR]
+- ClearMath Elementary Platform (if applicable): [attach/link ClearMath Elementary Platform ACR]
+
+<strong>Digital Tools</strong>
+- [digital-product-name] (e.g., MATHia, MATHstream): [attach/link corresponding ACR]
+
+<strong>Print Components / Digital Books</strong>
+- Accessible digital books / PDFs (if applicable): [confirm availability and provide link or documentation]
+- NIMAS (for print materials, if applicable): [confirm availability and provide link or certification report]
+
+The ACRs provide detailed, criterion-level information regarding accessibility support for each platform or tool. We recommend reviewing these documents for the most current and complete information.
+
+Please feel free to reach out with any specific questions as you review the materials.</div>
+          <div class="note">Tip: Do not modify the message to summarize compliance results or promise future dates.</div>
+        </section>
+
+        <section class="section" id="digital">
+          <h2>Digital Products Overview</h2>
+          <p class="lead">This section provides general context only. For detailed accessibility information, always refer to the ACR.</p>
+          <div class="product-grid">
+            <div class="card info">
+              <h3>Clear Learning Center</h3>
+              <ul>
+                <li>Learning platform (LMS)</li>
+                <li>Third-party audited</li>
+                <li>Tested with assistive technologies</li>
+                <li>Supports content delivery and user experience</li>
+              </ul>
+            </div>
+            <div class="card purple">
+              <h3>ClearMath Elementary Platform</h3>
+              <ul>
+                <li>Learning platform (LMS)</li>
+                <li>Third-party audited</li>
+                <li>Tested with assistive technologies</li>
+                <li>Supports elementary math digital experiences</li>
+              </ul>
+            </div>
+            <div class="card info">
+              <h3>MATHia</h3>
+              <ul>
+                <li>Web-based learning platform</li>
+                <li>Third-party audited</li>
+                <li>Tested with assistive technologies</li>
+              </ul>
+            </div>
+            <div class="card purple">
+              <h3>MATHstream</h3>
+              <ul>
+                <li>Web-based platform</li>
+                <li>Evaluated at component and user-flow level</li>
+                <li>Includes accessibility testing across key experiences</li>
+              </ul>
+            </div>
+            <div class="card info">
+              <h3>Clear Assessment Player (Learnosity)</h3>
+              <ul>
+                <li>Assessment delivery platform</li>
+                <li>Accessibility documented via Learnosity ACR</li>
+                <li>Supports interactive assessment experiences</li>
+                <li><a href="https://docs.google.com/spreadsheets/d/12x05acLJEGhORp3lkYWrVTBnYXzIpu8o/edit?gid=1215911950#gid=1215911950" target="_blank">View Learnosity ACR</a></li>
+              </ul>
+            </div>
+            <div class="card purple">
+              <h3>Carnegie Learning Reader (KITABOO)</h3>
+              <ul>
+                <li>Digital book delivery platform</li>
+                <li>Accessibility documented via KITABOO 6 ACR</li>
+                <li>Used to deliver accessible digital books / PDFs</li>
+                <li><a href="#">View KITABOO 6 ACR</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="note warn" style="margin-top:16px;">
+            <strong>Internal Context (For Staff Only)</strong><br>
+            Some Carnegie Learning platforms, including MATHia, have evolved over a long period of time, with origins predating current accessibility standards such as WCAG 2.1. As a result, accessibility improvements are being implemented incrementally as part of ongoing platform updates and modernization efforts.
+            <br><br>
+            This context helps explain why ACRs may reflect a mix of support levels across criteria. This information is for internal understanding only and should not be shared directly with customers. Always rely on ACR documentation and approved messaging when responding externally.
+          </div>
+        </section>
+
+        <section class="section" id="documentation">
+          <h2>ACR Library</h2>
+          <p class="lead">Accessibility Conformance Reports (ACRs) provide a standardized, criterion-level evaluation of how a product supports accessibility standards such as WCAG 2.1 and 2.2. These documents are the authoritative source for communicating accessibility support to customers.</p>
+          <p class="lead">Always share the latest version and refer customers directly to the document rather than summarizing or interpreting its contents.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Documentation</th>
+                  <th>Last Updated</th>
+                  <th>Type</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MATHia</td>
+                  <td><a href="#">View ACR</a></td>
+                  <td>Mar 2026</td>
+                  <td><span class="pill">Web Application</span></td>
+                  <td>Third-party audited and tested with assistive technologies.</td>
+                </tr>
+                <tr>
+                  <td>MATHstream</td>
+                  <td><a href="#">View ACR</a></td>
+                  <td>Mar 2026</td>
+                  <td><span class="pill">Web Application</span></td>
+                  <td>Third-party audited and tested with assistive technologies.</td>
+                </tr>
+                <tr>
+                  <td>Clear Assessment Player (Learnosity)</td>
+                  <td><a href="https://docs.google.com/spreadsheets/d/12x05acLJEGhORp3lkYWrVTBnYXzIpu8o/edit?gid=1215911950#gid=1215911950" target="_blank">View ACR</a></td>
+                  <td>Vendor Provided</td>
+                  <td><span class="pill">Web Application</span></td>
+                  <td>Accessibility conformance documented by Learnosity.</td>
+                </tr>
+                <tr>
+                  <td>Clear Learning Center</td>
+                  <td><a href="#">View ACR</a></td>
+                  <td>Mar 2024</td>
+                  <td><span class="pill">Website</span></td>
+                  <td>Core platform supporting content delivery and user experience.</td>
+                </tr>
+                <tr>
+                  <td>ClearMath Elementary – Teachers & Administrators</td>
+                  <td><a href="#">View ACR</a></td>
+                  <td>Jul 2025</td>
+                  <td><span class="pill">Website</span></td>
+                  <td>Teacher and administrative interface.</td>
+                </tr>
+                <tr>
+                  <td>ClearMath Elementary – Students</td>
+                  <td><a href="#">View ACR</a></td>
+                  <td>May 2025</td>
+                  <td><span class="pill">Website</span></td>
+                  <td>Student-facing learning experience.</td>
+                </tr>
+                <tr>
+                  <td>CL Reader</td>
+                  <td><a href="#">View ACR (KITABOO 6)</a></td>
+                  <td>Oct 2024</td>
+                  <td><span class="pill">Digital Reader</span></td>
+                  <td>Separately audited digital reader covered by the KITABOO 6 ACR.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">Do not store or send outdated copies when a newer document is available.</div>
+        </section>
+
+        <section class="section" id="print">
+          <h2>Print and Digital Books & Alternative Formats</h2>
+          <p class="lead">Use this information when a district is using print materials, accessible digital books, or alternative format services.</p>
+          <div class="print-grid">
+            <div class="card warn">
+              <h3>Print Programs & NIMAS</h3>
+              <ul>
+                <li>NIMAS files are available for applicable Carnegie Learning titles.</li>
+                <li>NIMAS supports the creation of accessible formats through authorized channels.</li>
+                <li>Use the NIMAS search page and Carnegie Learning title list below when responding to inquiries.</li>
+              </ul>
+            </div>
+            <div class="card info">
+              <h3>Accessible Digital Books / PDFs</h3>
+              <ul>
+                <li>Some Carnegie Learning programs include accessible digital books and source PDFs used to generate those digital books.</li>
+                <li>These titles are delivered through CL Reader, the digital book reader integrated with the Clear Learning Center.</li>
+                <li>Availability varies by program, so confirm title-level access before responding.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="two-col" style="margin-top: 16px;">
+            <div class="card info">
+              <h3>What NIMAS Enables</h3>
+              <ul>
+                <li>Braille</li>
+                <li>Large print</li>
+                <li>Audio formats</li>
+                <li>Other specialized accessible formats through authorized accessible media producers</li>
+              </ul>
+            </div>
+            <div class="card purple">
+              <h3>Helpful Links</h3>
+              <ul>
+                <li><a href="#">Search titles on the NIMAS page</a></li>
+                <li><a href="#">View Carnegie Learning NIMAS titles and certification reports</a></li>
+                <li><a href="#">View accessible digital book availability by program</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="note">NIMAS supports accessibility for print materials and alternate format delivery. Accessible digital books and PDFs delivered through the Clear Learning Center are separate from NIMAS. Neither should be described as equivalent to WCAG conformance for Carnegie Learning web platforms.</div>
+        </section>
+
+        <section class="section" id="approach">
+          <h2>Accessibility Philosophy & Policy</h2>
+          <p class="lead">Carnegie Learning is committed to providing equitable access to our products and experiences for all learners. Accessibility is a core design principle and an ongoing responsibility across product development, content creation, and customer support.</p>
+          <div class="two-col">
+            <div class="card info">
+              <h3>Our Principles</h3>
+              <ul>
+                <li><strong>Evolving Portfolio:</strong> Our products have been developed and modernized over time. As accessibility standards and technologies evolve, our portfolio reflects a range of support levels while we continue to remediate and enhance accessibility across systems.</li>
+                <li><strong>Design for Access:</strong> We aim to design products that are usable by the widest range of learners, including those using assistive technologies.</li>
+                <li><strong>Standards Alignment:</strong> We align to WCAG 2.1/2.2 and applicable regulations (e.g., Section 508) and document support via ACRs.</li>
+                <li><strong>Transparency:</strong> We communicate accessibility through ACRs and approved guidance rather than informal summaries.</li>
+                <li><strong>Consistency:</strong> We provide clear, repeatable guidance for customer-facing teams to ensure accurate messaging.</li>
+              </ul>
+            </div>
+            <div class="card purple">
+              <h3>Our Policy</h3>
+              <ul>
+                <li><strong>Document-First Communication:</strong> ACRs are the authoritative source for accessibility support and must be shared in responses.</li>
+                <li><strong>No Overstatement:</strong> Staff must not claim compliance or timelines unless explicitly documented.</li>
+                <li><strong>Third-Party Clarity:</strong> Accessibility for third-party tools (e.g., Learnosity, KITABOO) is represented by vendor ACRs.</li>
+                <li><strong>Program-Level Clarity:</strong> Responses should reflect the full delivery model (platforms, tools, digital books, and print/NIMAS).</li>
+                <li><strong>Escalation:</strong> Legal language, commitments, or interpretation requests must be routed to Accessibility leads.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="two-col" style="margin-top:16px;">
+            <div class="card warn">
+              <h3>Continuous Improvement</h3>
+              <ul>
+                <li>Regular third-party audits and internal testing with assistive technologies.</li>
+                <li>Backlog-driven remediation and iterative releases.</li>
+                <li>Retesting and validation following updates.</li>
+              </ul>
+            </div>
+            <div class="card info">
+              <h3>What This Means for Customers</h3>
+              <ul>
+                <li>Districts review ACRs to determine fit within their accessibility plans.</li>
+                <li>Alternative pathways (e.g., NIMAS, accessible digital books) may support access where needed.</li>
+                <li>Accessibility is an ongoing effort; documentation reflects current, point-in-time support.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="note">Accessibility is an ongoing commitment. We continuously improve our products and documentation, and we partner with customers to support equitable access.</div>
+        </section>
+
+        <section class="section" id="faq">
+          <h2>What to Say / What Not to Say</h2>
+          <p class="lead">Use these examples to respond consistently and reduce risk.</p>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>Are Carnegie Learning products WCAG 2.1 AA compliant?</h3>
+              <div class="say"><strong>Say:</strong><br>“The ACR provides a detailed, criterion-level view of accessibility support. I recommend reviewing that document for the most accurate information.”</div>
+              <div class="not-say"><strong>Do NOT say:</strong><br>“Yes, we are compliant.”<br>“Mostly compliant.”<br>“We meet WCAG.”</div>
+            </div>
+            <div class="faq-item">
+              <h3>Will Carnegie Learning be compliant by April 2026?</h3>
+              <div class="say"><strong>Say:</strong><br>“We are actively improving accessibility across our products. Please refer to the ACR and roadmap for the most current information.”</div>
+              <div class="not-say"><strong>Do NOT say:</strong><br>“Yes, we will be compliant by April 2026.”<br>“We are on track to meet that deadline.”</div>
+            </div>
+            <div class="faq-item">
+              <h3>Can districts still use Carnegie Learning products if they are not fully conformant?</h3>
+              <div class="say"><strong>Say:</strong><br>“Districts typically review ACRs and determine how products fit within their accessibility plans, including accommodations or alternative formats where needed.”</div>
+              <div class="not-say"><strong>Do NOT say:</strong><br>“There is no risk.”<br>“It’s compliant anyway.”</div>
+            </div>
+            <div class="faq-item">
+              <h3>What about print materials and digital books?</h3>
+              <div class="say"><strong>Say:</strong><br>“For applicable print programs, we provide NIMAS files that enable accessible formats such as braille, large print, and audio. Some programs also include accessible digital books delivered through the Clear Learning Center.”</div>
+              <div class="not-say"><strong>Do NOT say:</strong><br>“Print materials are WCAG compliant.”<br>“NIMAS makes us compliant.”<br>“All digital books are accessible across all programs.”</div>
+            </div>
+            <div class="faq-item">
+              <h3>Can I summarize the ACR for the customer?</h3>
+              <div class="say"><strong>Say:</strong><br>“I recommend sharing the ACR directly, as it provides the most complete and accurate information.”</div>
+              <div class="not-say"><strong>Do NOT say:</strong><br>“It mostly supports accessibility.”<br>“There are only minor issues.”</div>
+            </div>
+            <div class="faq-item">
+              <h3>Why are districts asking more about accessibility now?</h3>
+              <div class="say"><strong>Say:</strong><br>“Many districts are strengthening procurement and compliance review processes related to digital accessibility, which is increasing requests for ACRs and related documentation.”</div>
+              <div class="not-say"><strong>Do NOT say:</strong><br>“Everyone has to be fully compliant by one fixed date.”<br>“This only affects some states.”</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="escalate">
+          <h2>When to Escalate</h2>
+          <p class="lead">Contact the Accessibility Team in any of the following scenarios:</p>
+          <div class="rule-grid">
+            <div class="card warn">
+              <h3>Escalate if the customer asks for:</h3>
+              <ul>
+                <li>A formal compliance statement</li>
+                <li>Contract or legal language</li>
+                <li>Interpretation of ACR results</li>
+                <li>Product-specific guarantees or commitments</li>
+              </ul>
+            </div>
+            <div class="card info">
+              <h3>Also escalate if:</h3>
+              <ul>
+                <li>You are unsure how to respond</li>
+                <li>The request includes procurement or district audit language</li>
+                <li>The customer asks for a timeline commitment</li>
+                <li>The inquiry spans multiple products or formats</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <h2>Contact & Support</h2>
+          <p class="lead">For help with accessibility responses, documentation, or escalations, contact:</p>
+          <div class="two-col">
+            <div class="card info">
+              <h3>Accessibility Contact</h3>
+              <p>Kevin Allard / Content Accessibility<br>Dennis Geary / Platform & Software Accessibility</p>
+            </div>
+            <div class="card purple">
+              <h3>Page Maintenance</h3>
+              <p>Last Updated: [Insert Date]<br>Maintained by: Accessibility Team</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="learn">
+          <h2>Learn More about Accessibility</h2>
+          <p class="lead">Use these resources to build your understanding of accessibility standards, requirements, and best practices.</p>
+          <div class="two-col">
+            <div class="card info">
+              <h3>Standards & Guidance</h3>
+              <ul>
+                <li><a href="#">WCAG 2.1 Overview</a></li>
+                <li><a href="#">WCAG 2.2 Overview</a></li>
+                <li><a href="#">Section 508 & ADA Overview</a></li>
+              </ul>
+            </div>
+            <div class="card purple">
+              <h3>Internal Resources</h3>
+              <ul>
+                <li><a href="#">Accessibility Roadmap</a></li>
+                <li><a href="#">Accessibility Response Kit</a></li>
+                <li><a href="#">Training & FAQs for Staff</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="note">These materials are for internal learning and should be used to support, not replace, approved customer-facing messaging.</div>
+        </section>
+
+      </main>
+    </div>
+
+    <div id="program-view" class="view">
+    <header class="hero">
+      <h1>Accessibility by Program</h1>
+      <p>Select a Carnegie Learning program to generate a consolidated, program-level set of accessibility resources and a draft email response. This tool is designed to help you quickly gather the correct ACRs and supporting materials and produce approved, consistent messaging.</p>
+      <div class="callout">Important: This tool is for internal guidance only. Always verify the latest documents before sharing them externally. The generated email text should not be modified to interpret or summarize compliance.</div>
+    </header>
+
+    <div class="toolbar">
+      <a class="button" href="#guardrails">← Back to Accessibility Resources Hub</a>
+      <span class="muted">Prototype view — visual mockup only</span>
+    </div>
+
+    <section class="section">
+      <h2>Program Lookup</h2>
+      <p class="lead">This prototype shows how the tool could gather relevant accessibility documentation and generate a response draft for staff to copy into an email.</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="program-select-mock">Select a program</label>
+          <select id="program-select-mock" disabled>
+            <option>¡Qué Chévere! 3rd Edition</option>
+            <option>MATHbook 4th Edition</option>
+            <option>ClearMath Elementary</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="program-search-mock">Quick search</label>
+          <input id="program-search-mock" type="text" placeholder="Type a program name to filter" disabled />
+        </div>
+      </div>
+
+      <div class="result-stack">
+        <div class="card info">
+          <h3>MATHbook 4th Edition</h3>
+          <p class="muted">Example program summary showing how the tool can assemble the full set of relevant accessibility resources for a specific Carnegie Learning program.</p>
+          <div class="tag-row">
+            <span class="pill">Program Overview</span>
+            <span class="pill">Generated Draft</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="toolbar">
+            <h3 style="margin:0;">Generated Email Response</h3>
+            <button class="button primary" type="button" disabled>Copy Email</button>
+          </div>
+          <div class="template">Thank you for reaching out regarding accessibility and WCAG 2.1 AA for [program-name].
+
+Below are the relevant accessibility resources based on the components used in this program.
+
+Platforms
+- Clear Learning Center: [link to ACR if applicable]
+- ClearMath Elementary Platform: [link to ACR if applicable]
+
+Digital Tools
+- MATHia: [link to ACR if applicable]
+- MATHstream: [link to ACR if applicable]
+- Clear Assessment Player (Learnosity): [link to vendor ACR if applicable]
+- Carnegie Learning Reader (KITABOO): [link to reader ACR if applicable]
+
+Print Components / Digital Books
+- Accessible digital books / PDFs: [availability by title]
+- NIMAS: [availability and certification report if applicable]
+
+The ACRs provide detailed, criterion-level information regarding accessibility support for each platform or tool. We recommend reviewing these documents for the most current and complete information.
+
+Please feel free to reach out with any specific questions as you review the materials.</div>
+        </div>
+
+        <div class="three-col">
+          <div class="card info">
+            <h3>Relevant Platform Documentation</h3>
+            <ul>
+              <li>Clear Learning Center ACR</li>
+              <li>ClearMath Elementary Student ACR</li>
+              <li>ClearMath Elementary Teacher/Admin ACR</li>
+            </ul>
+          </div>
+          <div class="card purple">
+            <h3>Digital Tools / Readers</h3>
+            <ul>
+              <li>MATHia ACR</li>
+              <li>MATHstream ACR</li>
+              <li>Learnosity ACR</li>
+              <li>KITABOO 6 ACR</li>
+            </ul>
+          </div>
+          <div class="card warn">
+            <h3>Print / NIMAS / Alternate Formats</h3>
+            <ul>
+              <li>NIMAS title availability</li>
+              <li>NIMAS certification report</li>
+              <li>Accessible digital book / PDF availability by program</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note"><strong>Prototype Note:</strong> This view is a visual concept only. It demonstrates that the tool can both gather the relevant compliance documents and prepare reusable response text for staff.</div>
+      </div>
+    </section>
+
+    <div class="footer">Consistency matters. Use this page to ensure accurate, aligned responses across Carnegie Learning.</div>
+  </div>
+
+  <script>
+  const views = {
+    hub: document.getElementById('hub-view'),
+    program: document.getElementById('program-view')
+  };
+
+  function showView(name) {
+    Object.values(views).forEach(v => v.classList.remove('active'));
+    views[name].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  function routeFromHash() {
+    const hash = window.location.hash;
+    if (hash === '#program-tool-view') {
+      showView('program');
+    } else {
+      showView('hub');
+      if (hash && hash !== '#hub') {
+        const target = document.querySelector(hash);
+        if (target) {
+          setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+        }
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', routeFromHash);
+  routeFromHash();
+
+  const copyTemplateBtn = document.getElementById('copy-template-btn');
+  if (copyTemplateBtn) {
+    copyTemplateBtn.addEventListener('click', () => {
+      const el = document.getElementById('template-content');
+      if (!el) return;
+      const text = el.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = copyTemplateBtn.textContent;
+        copyTemplateBtn.textContent = 'Copied!';
+        setTimeout(() => { copyTemplateBtn.textContent = original; }, 1500);
+      }).catch(() => {
+        alert('Unable to copy. Please select and copy manually.');
+      });
+    });
+  }
+</script>
+</body>
+</html>
